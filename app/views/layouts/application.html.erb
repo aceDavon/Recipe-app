@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <header>
+    <% if notice %>
+    <p class="notice"><%= notice %></p>
+    <% else %>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
