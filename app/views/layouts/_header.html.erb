@@ -32,23 +32,24 @@ aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle 
 </svg>
 </button>
 <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
-<a class="text-xl text-black" href="#">Navbar</a>
+<a class="text-4xl text-green-700 font-bold" href="<%= root_path %>">Recipe App</a>
 <!-- Left links -->
-<ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
-  <li class="nav-item px-2">
-    <a class="nav-link active" aria-current="page" href="#">Home</a>
-  </li>
-  <li class="nav-item pr-2">
-    <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Features</a>
-  </li>
-  <li class="nav-item pr-2">
-    <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Pricing</a>
-  </li>
-  <li class="nav-item pr-2">
-    <a class="nav-link disabled text-gray-300 p-0"
-      >Disabled</a
-    >
-  </li>
+<ul class="navbar-nav flex flex-col pl-0 list-style-none ml-auto">
+  <% if current_user %>
+    <li class="nav-item pr-2">
+    <%= link_to "Food", user_foods_path(current_user), class: 'nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0' %>
+    </li>
+    <li class="nav-item pr-2">
+      <%= link_to "Recipes", user_recipes_path(current_user), class: 'nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0' %>
+    </li>
+    <li class="nav-item pr-2">
+      <%= link_to "Public Recipes", public_recipes_path, class: 'nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0' %>
+    </li>
+  <% else %>
+    <li class="nav-item pr-2 bg-blue-500 rounded-lg p-2 border border-black">
+      <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="<% new_user_registration_path %>">Sign Up</a>
+    </li>
+  <% end %>
 </ul>
 <!-- Left links -->
 </div>

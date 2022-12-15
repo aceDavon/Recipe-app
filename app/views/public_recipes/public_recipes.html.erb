@@ -10,7 +10,7 @@
           <% @recipes.each do |recipe| %>
             <div class="border flex justify-between border-gray-400 rounded-lg px-4 py-1">
               <div class="space-y-8 flex flex-col">
-                <span class="text-xl"><%= recipe.name %></span>
+                <span class="text-xl"><%= link_to recipe.name, user_recipe_path(current_user, recipe.id) %></span>
                 <span class="capitalize">by: <%= recipe.user.name %></span>
               </div>
               <div class="space-y-8 flex flex-col">
