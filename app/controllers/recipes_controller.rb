@@ -25,11 +25,11 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         params[:foods][:id].each do |food|
-          if !food.empty?
-            RecipeFood.create!({ quantity: 0, food_id: food, recipe_id: @recipe.id })
-          end
+          RecipeFood.create!({ quantity: 0, food_id: food, recipe_id: @recipe.id }) unless food.empty?
         end
-        format.html { redirect_to user_recipes_path(current_user, @recipe), notice: 'Recipe was successfully created.' }
+        format.html do
+          redirect_to user_recipes_path(current_user, @recipe), notice: 'Recipe was successfully created.'
+        end
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }

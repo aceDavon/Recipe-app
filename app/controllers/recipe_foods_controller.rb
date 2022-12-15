@@ -5,7 +5,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_foods = RecipeFood.new
   end
 
-   # GET /recipes/1/edit
+  # GET /recipes/1/edit
   def edit
     @recipe_foods
   end
@@ -18,7 +18,9 @@ class RecipeFoodsController < ApplicationController
 
     respond_to do |format|
       if @recipe_foods.save
-        format.html { redirect_to user_recipes_path(current_user, @recipe), notice: 'Food was successfully added to Recipe.' }
+        format.html do
+          redirect_to user_recipes_path(current_user, @recipe), notice: 'Food was successfully added to Recipe.'
+        end
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -31,7 +33,7 @@ class RecipeFoodsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_foods.update(recipe_foods_params)
-        format.html { redirect_to user_recipes_path(current_user, @recipe), notice: "Recipe was successfully updated." }
+        format.html { redirect_to user_recipes_path(current_user, @recipe), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
