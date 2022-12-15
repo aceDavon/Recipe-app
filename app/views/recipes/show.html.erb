@@ -8,7 +8,7 @@
         <h1 class="text-2xl text-center font-bold"><%= @recipe.name %></h1>
         <div class="flex justify-between">
           <p class="w-full text-left">Preparation time: <%= @recipe.prep_time %>hr</p>
-          <span class="flex gap-2 items-center">Public <%= render "common/checkbox", data: @recipe %></span>
+          <span class="flex gap-2 items-center"><%= render "common/checkbox", data: @recipe %></span>
         </div>
         <p class="w-full text-left">Cooking time: <%= @recipe.cooking_time %>hr</p>
         <p class="text-left">Steps to go...</p>
