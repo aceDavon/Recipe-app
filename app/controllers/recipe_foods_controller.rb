@@ -33,7 +33,9 @@ class RecipeFoodsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_foods.update(recipe_foods_params)
-        format.html { redirect_to user_recipes_path(current_user, @recipe), notice: 'Recipe was successfully updated.' }
+        format.html do
+          redirect_to user_recipes_path(current_user, @recipe), notice: 'Recipe was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
