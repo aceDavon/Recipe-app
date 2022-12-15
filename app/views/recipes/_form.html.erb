@@ -1,4 +1,4 @@
-<%= form_with(model: recipe, class: "contents") do |form| %>
+<%= form_with(model: recipe, url: user_recipes_path(current_user.id), class: "contents") do |form| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -32,8 +32,13 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :foods, class: 'block py-2' %>
+    <%= collection_select(:foods, :id, Food.all, :id, :name, {}, {:multiple => true }) %>
+  </div>
+
+  <div class="my-5 flex gap-4 items-center">
     <%= form.label :public %>
-    <%= form.check_box :public, class: "block mt-2 h-5 w-5" %>
+    <%= form.check_box :public %>
   </div>
 
   <div class="inline">
