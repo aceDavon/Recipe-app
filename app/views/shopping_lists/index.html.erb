@@ -1,0 +1,19 @@
+<div class="mx-auto md:w-11/12 w-full flex">
+  <div class="w-full">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <div class="w-full flex flex-col gap-4 px-6 divide-y-2">
+      <div class="block space-y-4 pb-2">
+        <h1 class="text-2xl text-center font-bold"><%= @recipes.name %></h1>
+        <div class="flex justify-between w-full">
+          <p class="w-full">Amount of food to buy: <%= @food_len %></p>
+          <p class="w-full text-right">Total value of food needed: $<%= @price_data %></p>
+        </div>
+        <div class="w-full py-6">
+        <%= render "shopping_lists/table", foods: @recipes, headers: ['food', 'quantity', 'price'] %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

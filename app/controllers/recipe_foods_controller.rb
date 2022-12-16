@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe_food, only: %i[edit update]
 
   def new

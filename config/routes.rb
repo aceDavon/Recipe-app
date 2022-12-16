@@ -2,9 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  root 'users#show'
+  get '/public_recipes', to: 'public_recipes#public_recipes'
   resources :users do
     resources :recipes, except: [:update] do
       resources :recipe_foods
+      get '/shopping_list', to: 'shopping_lists#index'
     end
     resources :foods, except: [:update]
   end

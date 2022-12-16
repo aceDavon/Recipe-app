@@ -8,7 +8,7 @@
     <%= link_to 'New recipe', new_user_recipe_path(current_user), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="recipes" class="min-w-full">
+  <div id="recipes" class="grid place-items-center">
     <%= render "common/card", recipes: @recipes %>
   </div>
 </div>
