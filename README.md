@@ -132,6 +132,10 @@ To run the project, execute the following command:
 - Twitter: [@shakleshevon](https://twitter.com/sharkleshevon)
 - LinkedIn: [Makoji David](https://www.linkedin.com/in/makoji-david/)
 
+👤 **Milen Alebel**
+
+- GitHub: [@milen-ale](https://github.com/milen-ale)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
